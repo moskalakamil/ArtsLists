@@ -1,38 +1,38 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform } from 'react-native';
 import './i18n.config';
-import { useT } from './src/utils/useTranslation/useTranslation';
+import 'react-native-gesture-handler';
+import './wdyr';
+import { AppNavigator } from '@/navigation/AppNavigator';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {
+  queryClient,
+  setupOnlineListener,
+  useFocusAppFetch,
+} from '@/api/query-client';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
+import { toastConfig } from '@/utils/toast/toast';
 
+setupOnlineListener();
 const App = () => {
-  const { t } = useT();
+  useFocusAppFetch();
   return (
-    <SafeAreaView style={styles.sectionContainer}>
-      <ScrollView>
-        <View>
-          <Text>{t('test')}</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <GestureHandlerRootView style={{ flexGrow: 1 }}>
+        <SafeAreaProvider>
+          <KeyboardAvoidingView
+            style={{ flexGrow: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          >
+            <AppNavigator />
+            <Toast config={toastConfig} />
+          </KeyboardAvoidingView>
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
+    </QueryClientProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
