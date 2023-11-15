@@ -1,7 +1,6 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform } from 'react-native';
 import './i18n.config';
-import 'react-native-gesture-handler';
 import './wdyr';
 import { AppNavigator } from '@/navigation/AppNavigator';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
