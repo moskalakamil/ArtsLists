@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { config } from '@/config';
 
-const url = 'https://api.artic.edu';
 export const api = axios.create({
-  baseURL: url + '/api/v1/',
+  baseURL: config.baseUrl + '/api/v1/',
 });

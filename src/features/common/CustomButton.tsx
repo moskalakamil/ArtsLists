@@ -19,7 +19,7 @@ export const CustomButton = ({
         ref={buttonRef}
         {...props}
         className={cn(
-          'bg-primary-600 py-3 px-2 rounded-lg transition-all active:opacity-80',
+          'bg-primary-600 items-center py-3 text-center px-2 rounded-lg transition-all active:opacity-80',
           className
         )}
       >

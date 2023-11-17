@@ -3,22 +3,18 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
-      fontFamily: {
-        inter: ['Inter'],
-        'inter-medium': ['Inter-Medium'],
-      },
       colors: {
         primary: {
-          100: '#E7EDF5',
-          200: '#DBE5F6',
-          300: '#C0D6F6',
-          400: '#A6C7F7',
-          500: '#8CB9F8',
-          600: '#63ABFF',
-          700: '#3492FF',
-          800: '#1983FF',
-          900: '#0076FF',
-          950: '#002D61',
+          100: '#e7edf5',
+          200: '#dbe5f6',
+          300: '#c0d6f6',
+          400: '#a6c7f7',
+          500: '#8cb9f8',
+          600: '#63abff',
+          700: '#3492ff',
+          800: '#1983ff',
+          900: '#0076ff',
+          950: '#002d61',
         },
         danger: {
           50: '#fef3ee',
