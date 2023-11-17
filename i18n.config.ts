@@ -1,13 +1,13 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import enCommon from './locales/en/common.json';
+import enApp from './locales/en/app.json';
 
 export const languageResources = {
-  en: { common: enCommon },
+  en: { app: enApp },
 } as const;
 
-export const defaultNS = 'common';
-export const ns = ['common'];
+export const defaultNS = 'app';
+export const ns = ['app'] as const;
 
 i18n.use(initReactI18next).init({
   compatibilityJSON: 'v3',
