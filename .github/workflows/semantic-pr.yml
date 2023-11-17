@@ -3,6 +3,7 @@ on: [pull_request]
 
 jobs:
   main:
+    permissions: write-all
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
