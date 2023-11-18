@@ -15,5 +15,7 @@
   "categories": "Categories",
   "dimensions": "Dimensions",
   "artist": "Artist",
-  "classification": "Classification"
+  "classification": "Classification",
+  "waitingToSearch": "Waiting to search",
+  "typeHere": "Type here...",
 }

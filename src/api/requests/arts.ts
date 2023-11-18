@@ -5,13 +5,17 @@ import { Pagination } from '@/models/common.model';
 
 export namespace ArtsApi {
   export const getArts = async (params: IGetArtsReq) => {
-    const { data } = await api.get<Pagination<Art[]>>('artworks', {
-      params: {
-        ...params,
-        page: params.pageParam,
-        fields: fields.join(','),
-      },
-    });
+    const { data } = await api.get<Pagination<Art[]>>(
+      `artworks${params.search ? '/search' : ''}`,
+      {
+        params: {
+          ...params,
+          page: params.pageParam,
+          q: params.search,
+          fields: fields.join(','),
+        },
+      }
+    );
     return data;
   };
 
