@@ -26,7 +26,7 @@ const HomeIcon = ({ focused }: IconsProps) => (
   />
 );
 
-export const MainStack = () => {
+export const MainTab = () => {
   const { t } = useT();
 
   return (

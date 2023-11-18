@@ -6,6 +6,9 @@ export const environment: Environment = 'development';
 
 const baseUrl = 'https://api.artic.edu/';
 
+export const imageUrl = (id: string) =>
+  `https://www.artic.edu/iiif/2/${id}/full/843,/0/default.jpg`;
+
 const defaultConfig = {
   currentAppVersion: 1,
   appStoreLink: 'https://',

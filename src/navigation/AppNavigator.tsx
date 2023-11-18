@@ -8,7 +8,7 @@ import { EntryStack } from './Entry.Stack';
 import { useShowEntryScreens } from '@/store/showEntryScreens';
 import { useDeviceInfo } from '@/store/deviceInfo';
 import { SafeAreaView, Text } from 'react-native';
-import { MainStack } from '@/navigation/Main.Stack';
+import { MainTab } from '@/navigation/Main.Tab';
 
 export const navigationRef = createNavigationContainerRef();
 
@@ -39,7 +39,7 @@ export const AppNavigator = () => {
           <Text>internet</Text>
         </SafeAreaView>
       )}
-      {showEntryScreen ? <EntryStack /> : <MainStack />}
+      {showEntryScreen ? <EntryStack /> : <MainTab />}
     </NavigationContainer>
   );
 };
