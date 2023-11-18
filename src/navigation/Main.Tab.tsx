@@ -22,7 +22,7 @@ interface IconsProps {
 const HomeIcon = ({ focused }: IconsProps) => (
   <Icon
     name={'home'}
-    className={focused ? `stroke-[#63ABFF]` : 'stroke-black'}
+    className={focused ? 'stroke-[#63ABFF]' : 'stroke-black'}
   />
 );
 
