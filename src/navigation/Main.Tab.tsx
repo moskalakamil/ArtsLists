@@ -4,9 +4,11 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { Icon } from '@/assets/Icon';
 import { HomeStack } from '@/navigation/Home.Stack';
 import { useT } from '@/utils/useTranslation/useTranslation';
+import { SearchStack } from '@/navigation/Search.Stack';
 
 export type MainStackNavParamList = {
   HomeScreen: undefined;
+  Search: undefined;
 };
 
 const Tab = createBottomTabNavigator<MainStackNavParamList>();
@@ -22,6 +24,13 @@ interface IconsProps {
 const HomeIcon = ({ focused }: IconsProps) => (
   <Icon
     name={'home'}
+    className={focused ? 'stroke-[#63ABFF]' : 'stroke-black'}
+  />
+);
+
+const SearchIcon = ({ focused }: IconsProps) => (
+  <Icon
+    name={'search'}
     className={focused ? 'stroke-[#63ABFF]' : 'stroke-black'}
   />
 );
@@ -63,6 +72,16 @@ export const MainTab = () => {
         options={{
           tabBarIcon: HomeIcon,
           tabBarLabel: t('home'),
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: 'black',
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={SearchStack}
+        options={{
+          tabBarIcon: SearchIcon,
+          tabBarLabel: t('search'),
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: 'black',
         }}
