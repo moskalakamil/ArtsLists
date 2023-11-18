@@ -26,7 +26,9 @@ const EntryLayout = ({
   const { t } = useT();
 
   return (
-    <SafeAreaView className={'flex-1 mt-40 mb-20 justify-between mx-auto'}>
+    <SafeAreaView
+      className={'flex-1 mt-[20vh] mb-[10vh] justify-between mx-auto'}
+    >
       <View className={'flex items-center'}>
         <View className={'min-h-[250]'}>
           <Icon name={iconName} width={DEVICE_WIDTH * 0.9} />

@@ -9,5 +9,11 @@
   "start": "Start",
   "startDescription": "Start your journey through the world of art!",
   "letsStart": "Let's start!",
-  "home": "Home"
+  "home": "Home",
+  "description": "Description",
+  "technique": "Technique",
+  "categories": "Categories",
+  "dimensions": "Dimensions",
+  "artist": "Artist",
+  "classification": "Classification"
 }

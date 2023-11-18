@@ -1,17 +1,31 @@
 import React from 'react';
 import { SvgProps } from 'react-native-svg';
 import artistsHistory from './Svg/artistsHistory.svg';
+import technique from './Svg/technique.svg';
 import home from './Svg/home.svg';
+import artists from './Svg/artists.svg';
+import classification from './Svg/classification.svg';
+import dimensions from './Svg/dimensions.svg';
 import discover from './Svg/discover.svg';
 import start from './Svg/start.svg';
 import favourites from './Svg/favourites.svg';
+import categories from './Svg/categories.svg';
+import description from './Svg/description.svg';
+import arrowLeft from './Svg/arrowLeft.svg';
 
 const ICONS = {
   artistsHistory,
+  technique,
   home,
+  artists,
+  classification,
+  dimensions,
   discover,
   start,
   favourites,
+  categories,
+  description,
+  arrowLeft,
 };
 
 export type IconType = keyof typeof ICONS;
