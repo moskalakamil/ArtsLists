@@ -9,6 +9,7 @@ import favourite from './Svg/favourite.svg';
 import artists from './Svg/artists.svg';
 import classification from './Svg/classification.svg';
 import dimensions from './Svg/dimensions.svg';
+import calender from './Svg/calender.svg';
 import discover from './Svg/discover.svg';
 import enterSomething from './Svg/enterSomething.svg';
 import start from './Svg/start.svg';
@@ -28,6 +29,7 @@ const ICONS = {
   artists,
   classification,
   dimensions,
+  calender,
   discover,
   enterSomething,
   start,
