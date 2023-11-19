@@ -5,11 +5,11 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 This React Native application serves as an interactive platform for art enthusiasts to explore and appreciate a curated collection of artworks. Users can browse through a list of gathered masterpieces, delve into detailed information about each artwork, and learn more about the talented artists behind them. The app also provides features for liking artworks and offers a search functionality for easy navigation.
 
 ## Features
-Artwork List: View a comprehensive list of artworks, each displaying key details.
-Artwork Details: Access in-depth information about each artwork, including title, artist, and additional details.
-Artist Information: Explore details about the creators of the artworks showcased in the app.
-Like Functionality: Express appreciation for favorite artworks by liking them.
-Search Capability: Easily find specific artworks using the search feature.
+- Artwork List: View a comprehensive list of artworks, each displaying key details.
+- Artwork Details: Access in-depth information about each artwork, including title, artist, and additional details.
+- Artist Information: Explore details about the creators of the artworks showcased in the app.
+- Like Functionality: Express appreciation for favorite artworks by liking them.
+- Search Capability: Easily find specific artworks using the search feature.
 ## API Integration
 The application utilizes the [Art Institute of Chicago API](https://api.artic.edu/docs) to fetch data about artworks and artists. This seamless integration enhances the app's content with rich and authoritative information.
 
