@@ -23,5 +23,7 @@
   "emptyFavourites": "You don't have any favourites yet",
   "noData": "No data",
   "name": "Name",
-  "lifeYears": "Life years"
+  "lifeYears": "Life years",
+  "refresh": "Refresh",
+  "lostInternetConnection": "Lost internet connection"
 }
