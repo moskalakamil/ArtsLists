@@ -8,6 +8,7 @@ import { PreviewItem } from '@/features/main.tab/_components/art/preview/Preview
 import { useT } from '@/utils/useTranslation/useTranslation';
 import RenderHTML from 'react-native-render-html';
 import { DEVICE_WIDTH } from '@/config';
+import ArtistsImages from '@/features/main.tab/_components/artist/ArtistsImages';
 
 export const ArtistPreviewScreen = ({ route }: StackScreenProps<any>) => {
   const { params } = route;
@@ -60,6 +61,7 @@ export const ArtistPreviewScreen = ({ route }: StackScreenProps<any>) => {
               />
             </PreviewItem>
           )}
+          {artist?.title && <ArtistsImages name={artist.title} />}
         </View>
       </ScrollView>
     </SafeAreaView>

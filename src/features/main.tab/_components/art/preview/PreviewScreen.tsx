@@ -39,12 +39,8 @@ const PreviewScreen = ({ route }: StackScreenProps<any>) => {
       <Pressable onPress={() => setImagePreview(true)}>
         <Animated.Image
           sharedTransitionTag={params?.image_id || art?.image_id}
-          source={{ uri: imageUrl(params?.image_id) }}
-          style={{
-            width: '100%',
-            height: 220,
-            backgroundColor: 'red',
-          }}
+          source={{ uri: imageUrl(params?.image_id || art?.image_id) }}
+          className={'w-full h-[220] bg-neutral-200 animate-bounce'}
         />
       </Pressable>
       {imagePreview && (
