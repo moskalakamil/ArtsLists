@@ -4,7 +4,7 @@ import { Icon, IconType } from '@/assets/Icon';
 import { cn } from '@/utils/cn';
 
 interface IPreviewItemProps {
-  icon: IconType;
+  icon?: IconType;
   title: string;
   children: React.ReactNode;
   className?: string;
@@ -24,7 +24,7 @@ export const PreviewItem = ({
       )}
     >
       <View className={'flex-row items-center gap-2'}>
-        <Icon name={icon} width={30} height={30} />
+        {icon && <Icon name={icon} width={30} height={30} />}
         <Text className={'font-medium text-black'}>{title}</Text>
       </View>
       <View className={'ml-[38] flex-grow'}>{children}</View>
