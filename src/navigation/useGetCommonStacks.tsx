@@ -4,8 +4,8 @@ import {
   TypedNavigator,
   useNavigation,
 } from '@react-navigation/native';
-import PreviewScreen from '@/features/main.tab/_components/PreviewScreen';
-import { ArtistPreviewScreen } from '@/features/main.tab/_components/ArtistPreviewScreen';
+import PreviewScreen from '@/features/main.tab/_components/art/preview/PreviewScreen';
+import { ArtistPreviewScreen } from '@/features/main.tab/_components/artist/ArtistPreviewScreen';
 
 export type CommonStackNavParamList = {
   ArtPreview: {

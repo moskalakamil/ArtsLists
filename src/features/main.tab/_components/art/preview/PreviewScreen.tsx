@@ -5,7 +5,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import Animated, { FadeInRight, FadeInUp } from 'react-native-reanimated';
 import { Icon } from '@/assets/Icon';
 import { useGetArtById } from '@/api/queries/arts';
-import { PreviewItem } from '@/features/main.tab/_components/PreviewItem';
+import { PreviewItem } from '@/features/main.tab/_components/art/preview/PreviewItem';
 import RenderHTML from 'react-native-render-html';
 import { useT } from '@/utils/useTranslation/useTranslation';
 import ImageView from 'react-native-image-viewing';
@@ -39,12 +39,8 @@ const PreviewScreen = ({ route }: StackScreenProps<any>) => {
       <Pressable onPress={() => setImagePreview(true)}>
         <Animated.Image
           sharedTransitionTag={params?.image_id || art?.image_id}
-          source={{ uri: imageUrl(params?.image_id) }}
-          style={{
-            width: '100%',
-            height: 220,
-            backgroundColor: 'red',
-          }}
+          source={{ uri: imageUrl(params?.image_id || art?.image_id) }}
+          className={'w-full h-[220] bg-neutral-200 animate-bounce'}
         />
       </Pressable>
       {imagePreview && (

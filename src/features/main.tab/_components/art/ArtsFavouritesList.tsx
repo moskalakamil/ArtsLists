@@ -1,6 +1,6 @@
 import { FlatList, Text, View } from 'react-native';
 import React from 'react';
-import { ArtItem } from '@/features/main.tab/_components/ArtItem';
+import { ArtItem } from '@/features/main.tab/_components/art/ArtItem';
 import { useFavourites } from '@/store/favourites';
 import { Icon } from '@/assets/Icon';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '@/config';

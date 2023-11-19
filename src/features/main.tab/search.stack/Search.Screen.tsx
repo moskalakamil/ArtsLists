@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SafeAreaView, TextInput, View } from 'react-native';
-import { ArtsList } from '@/features/main.tab/_components/ArtsList';
+import { ArtsList } from '@/features/main.tab/_components/art/ArtsList';
 import { Icon } from '@/assets/Icon';
 import { useT } from '@/utils/useTranslation/useTranslation';
 
