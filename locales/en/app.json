@@ -21,5 +21,9 @@
   "waitingToSearch": "Waiting to search",
   "typeHere": "Type here...",
   "emptyFavourites": "You don't have any favourites yet",
-  "noData": "No data"
+  "noData": "No data",
+  "name": "Name",
+  "lifeYears": "Life years",
+  "refresh": "Refresh",
+  "lostInternetConnection": "Lost internet connection"
 }

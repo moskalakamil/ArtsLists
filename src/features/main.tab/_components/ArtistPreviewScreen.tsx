@@ -6,13 +6,15 @@ import { Icon } from '@/assets/Icon';
 import { useCommonNavigation } from '@/navigation/useGetCommonStacks';
 import { PreviewItem } from '@/features/main.tab/_components/PreviewItem';
 import { useT } from '@/utils/useTranslation/useTranslation';
+import RenderHTML from 'react-native-render-html';
+import { DEVICE_WIDTH } from '@/config';
 
 export const ArtistPreviewScreen = ({ route }: StackScreenProps<any>) => {
   const { params } = route;
 
   const { t } = useT();
 
-  const { data } = useGetArtistById(params?.id!);
+  const { data, isLoading } = useGetArtistById(params?.id!);
 
   const navigation = useCommonNavigation();
 
@@ -28,12 +30,36 @@ export const ArtistPreviewScreen = ({ route }: StackScreenProps<any>) => {
           <Icon name={'arrowLeft'} />
         </Pressable>
         <View className={'pt-14 pb-24 mx-[5%]'}>
-          <PreviewItem title={'Name'} icon={'artists'}>
-            <Text>{artist?.title}</Text>
-          </PreviewItem>
-          <PreviewItem icon={'description'} title={t('description')}>
-            <Text>{artist?.description}</Text>
-          </PreviewItem>
+          {isLoading && (
+            <>
+              {Array.from({ length: 2 }).map((_, i) => (
+                <View
+                  key={i}
+                  className={
+                    'bg-neutral-100 w-full h-28 animate-bounce mb-5 rounded-md'
+                  }
+                />
+              ))}
+            </>
+          )}
+          {artist?.title && (
+            <PreviewItem icon={'artists'} title={t('name')}>
+              <Text>{artist.title}</Text>
+            </PreviewItem>
+          )}
+          {artist?.birth_date && (
+            <PreviewItem icon={'calender'} title={t('lifeYears')}>
+              <Text>{[artist.birth_date, artist?.death_date].join('-')}</Text>
+            </PreviewItem>
+          )}
+          {artist?.description && (
+            <PreviewItem icon={'description'} title={t('description')}>
+              <RenderHTML
+                contentWidth={DEVICE_WIDTH * 0.9}
+                source={{ html: artist.description }}
+              />
+            </PreviewItem>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
