@@ -5,10 +5,12 @@ import { Icon } from '@/assets/Icon';
 import { HomeStack } from '@/navigation/Home.Stack';
 import { useT } from '@/utils/useTranslation/useTranslation';
 import { SearchStack } from '@/navigation/Search.Stack';
+import { FavouriteStack } from '@/navigation/Favourite.Stack';
 
 export type MainStackNavParamList = {
   HomeScreen: undefined;
   Search: undefined;
+  Favourite: undefined;
 };
 
 const Tab = createBottomTabNavigator<MainStackNavParamList>();
@@ -35,6 +37,13 @@ const SearchIcon = ({ focused }: IconsProps) => (
   />
 );
 
+const FavouriteIcon = ({ focused }: IconsProps) => (
+  <Icon
+    name={'favourite'}
+    className={focused ? 'stroke-[#63ABFF]' : 'stroke-black'}
+  />
+);
+
 export const MainTab = () => {
   const { t } = useT();
 
@@ -44,25 +53,22 @@ export const MainTab = () => {
       screenOptions={{
         tabBarStyle: {
           position: 'absolute',
+          display: 'flex',
           bottom: 25,
           left: 20,
           right: 20,
           borderRadius: 20,
           height: 65,
           alignItems: 'center',
+          justifyContent: 'center',
+          alignSelf: 'center',
           shadowColor: 'black',
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.2,
           shadowRadius: 4,
-          paddingBottom: 0,
+          paddingTop: 10,
+          paddingBottom: 10,
         },
-        tabBarLabelStyle: {
-          marginBottom: 12,
-        },
-        tabBarIconStyle: {
-          marginTop: 12,
-        },
-
         headerShown: false,
       }}
     >
@@ -82,6 +88,16 @@ export const MainTab = () => {
         options={{
           tabBarIcon: SearchIcon,
           tabBarLabel: t('search'),
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: 'black',
+        }}
+      />
+      <Tab.Screen
+        name="Favourite"
+        component={FavouriteStack}
+        options={{
+          tabBarIcon: FavouriteIcon,
+          tabBarLabel: t('favourite'),
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: 'black',
         }}

@@ -31,6 +31,19 @@ export const ArtsList = ({ search, hideData }: IArtsListProps) => {
     fetchNextPage();
   };
 
+  if (hideData && !search) {
+    return (
+      <View className={'items-center'}>
+        <Icon
+          name={'enterSomething'}
+          width={DEVICE_WIDTH * 0.6}
+          height={DEVICE_HEIGHT * 0.5}
+        />
+        <Text>{t('waitingToSearch')}</Text>
+      </View>
+    );
+  }
+
   if (isLoading) {
     return (
       <>
@@ -47,18 +60,14 @@ export const ArtsList = ({ search, hideData }: IArtsListProps) => {
   }
 
   if (arts?.length === 0) {
-    return <Text>no data</Text>;
-  }
-
-  if (hideData && !search) {
     return (
       <View className={'items-center'}>
         <Icon
-          name={'enterSomething'}
+          name={'noData'}
           width={DEVICE_WIDTH * 0.6}
           height={DEVICE_HEIGHT * 0.5}
         />
-        <Text>{t('waitingToSearch')}</Text>
+        <Text>{t('noData')}</Text>
       </View>
     );
   }

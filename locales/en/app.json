@@ -10,6 +10,8 @@
   "startDescription": "Start your journey through the world of art!",
   "letsStart": "Let's start!",
   "home": "Home",
+  "search": "Search",
+  "favourite": "Favourites",
   "description": "Description",
   "technique": "Technique",
   "categories": "Categories",
@@ -18,4 +20,6 @@
   "classification": "Classification",
   "waitingToSearch": "Waiting to search",
   "typeHere": "Type here...",
+  "emptyFavourites": "You don't have any favourites yet",
+  "noData": "No data"
 }

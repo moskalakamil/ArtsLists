@@ -1,42 +1,77 @@
+import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import Animated, {
+  Easing,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
+  withTiming,
 } from 'react-native-reanimated';
 import { images } from '@/assets/images';
 import { imageUrl } from '@/config';
-import React, { useState } from 'react';
 import { Art } from '@/models/arts.model';
 import { styled } from 'nativewind';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { useHomeNavigation } from '@/navigation/Home.Stack';
+import { useManageFavourites } from '@/utils/hooks/useManageFavourites';
 
 interface ArtItemProps {
   item: Art;
   index: number;
+  removeOnUnlike?: boolean;
 }
 
 const StyledBorderlessButton = styled(BorderlessButton);
 
-export const ArtItem = ({ item: art, index }: ArtItemProps) => {
-  const [artIndex, setArtIndex] = useState<undefined | number>(undefined);
-
+export const ArtItem = ({ item: art, removeOnUnlike }: ArtItemProps) => {
   const navigation = useHomeNavigation();
 
-  const width = useSharedValue(20);
+  const size = useSharedValue(20);
+  const opacity = useSharedValue(1);
+  const height = useSharedValue(280);
+  const marginVertical = useSharedValue(25);
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
-      width: width.value,
-      height: width.value,
+      width: size.value,
+      height: size.value,
     };
-  }, [width]);
-  const handleFavouritePress = (i: number) => {
-    width.value = withSpring(width.value + 3, { duration: 300 }, () => {
-      width.value = withSpring(width.value - 3, { duration: 300 });
+  }, [size]);
+
+  const cardAnimatedStyles = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+      height: height.value,
+      marginVertical: removeOnUnlike ? marginVertical.value : 25,
+    };
+  }, [size]);
+
+  const { manageFavourites, isFavourite } = useManageFavourites();
+  const handleFavouritePress = async () => {
+    size.value = withSpring(size.value + 3, { duration: 300 }, () => {
+      size.value = withSpring(size.value - 3, { duration: 300 });
     });
-    setArtIndex(i);
+
+    if (isFavourite(art.id) && removeOnUnlike) {
+      opacity.value = withTiming(0, {
+        duration: 200,
+        easing: Easing.ease,
+      });
+
+      height.value = withTiming(0, {
+        duration: 300,
+        easing: Easing.ease,
+      });
+
+      marginVertical.value = withTiming(0, {
+        duration: 300,
+        easing: Easing.ease,
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 400));
+    }
+
+    manageFavourites(art);
   };
 
   const handleArtPress = (id: number, image_id: string, title: string) => {
@@ -44,17 +79,21 @@ export const ArtItem = ({ item: art, index }: ArtItemProps) => {
   };
 
   return (
-    <View key={art?.id} className={'relative mx-[5%] my-[25]'}>
+    <Animated.View
+      key={art?.id}
+      className={'relative mx-[5%] h-[300]'}
+      style={cardAnimatedStyles}
+    >
       <Pressable
         className={'absolute z-10 top-3 right-3'}
         onPress={(e) => {
           e.stopPropagation();
-          handleFavouritePress(index);
+          handleFavouritePress();
         }}
       >
         <Animated.Image
-          source={artIndex === index ? images.heartActive : images.heart}
-          style={artIndex === index && animatedStyles}
+          source={isFavourite(art.id) ? images.heartActive : images.heart}
+          style={animatedStyles}
         />
       </Pressable>
       <View
@@ -87,6 +126,6 @@ export const ArtItem = ({ item: art, index }: ArtItemProps) => {
           </View>
         </StyledBorderlessButton>
       </View>
-    </View>
+    </Animated.View>
   );
 };

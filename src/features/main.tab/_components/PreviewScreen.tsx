@@ -10,6 +10,8 @@ import RenderHTML from 'react-native-render-html';
 import { useT } from '@/utils/useTranslation/useTranslation';
 import ImageView from 'react-native-image-viewing';
 import { useCommonNavigation } from '@/navigation/useGetCommonStacks';
+import { images } from '@/assets/images';
+import { useManageFavourites } from '@/utils/hooks/useManageFavourites';
 
 const PreviewScreen = ({ route }: StackScreenProps<any>) => {
   const { params } = route;
@@ -20,13 +22,14 @@ const PreviewScreen = ({ route }: StackScreenProps<any>) => {
 
   const navigation = useCommonNavigation();
 
+  const { isFavourite, manageFavourites } = useManageFavourites();
+
   const { data, isLoading } = useGetArtById(params?.id!);
 
   const art = data?.data;
 
   return (
     <ScrollView className={'flex-grow'}>
-      {/*<View className={'flex-row my-3 absolute'}>*/}
       <Pressable
         onPress={() => navigation.goBack()}
         className={'z-10 top-3 absolute'}
@@ -52,7 +55,18 @@ const PreviewScreen = ({ route }: StackScreenProps<any>) => {
           onRequestClose={() => setImagePreview(false)}
         />
       )}
-      <View className={'mx-5 pb-24'}>
+      <View className={'mx-5 pb-24 relative'}>
+        <Pressable
+          onPress={() => manageFavourites(art!)}
+          className={'z-10 -top-14 absolute -right-1 bg-white p-4 rounded-full'}
+        >
+          <Animated.Image
+            entering={FadeInRight}
+            source={
+              isFavourite(params?.id!) ? images.heartActive : images.heart
+            }
+          />
+        </Pressable>
         <Animated.Text
           style={{ marginVertical: 10 }}
           entering={FadeInUp}
