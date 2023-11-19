@@ -2,7 +2,7 @@ import { FlatList, Text, View } from 'react-native';
 import React from 'react';
 import { useGetArts } from '@/api/queries/arts';
 import { Art } from '@/models/arts.model';
-import { ArtItem } from '@/features/main.tab/_components/ArtItem';
+import { ArtItem } from '@/features/main.tab/_components/art/ArtItem';
 import { Icon } from '@/assets/Icon';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '@/config';
 import { useT } from '@/utils/useTranslation/useTranslation';

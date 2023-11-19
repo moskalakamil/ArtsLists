@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { ArtsList } from '@/features/main.tab/_components/ArtsList';
+import { ArtsList } from '@/features/main.tab/_components/art/ArtsList';
 
 export const HomeScreen = () => {
   return (

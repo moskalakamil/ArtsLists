@@ -4,7 +4,7 @@ import { useGetArtistById } from '@/api/queries/artist';
 import { StackScreenProps } from '@react-navigation/stack';
 import { Icon } from '@/assets/Icon';
 import { useCommonNavigation } from '@/navigation/useGetCommonStacks';
-import { PreviewItem } from '@/features/main.tab/_components/PreviewItem';
+import { PreviewItem } from '@/features/main.tab/_components/art/preview/PreviewItem';
 import { useT } from '@/utils/useTranslation/useTranslation';
 import RenderHTML from 'react-native-render-html';
 import { DEVICE_WIDTH } from '@/config';

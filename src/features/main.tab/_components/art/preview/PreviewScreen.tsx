@@ -5,7 +5,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import Animated, { FadeInRight, FadeInUp } from 'react-native-reanimated';
 import { Icon } from '@/assets/Icon';
 import { useGetArtById } from '@/api/queries/arts';
-import { PreviewItem } from '@/features/main.tab/_components/PreviewItem';
+import { PreviewItem } from '@/features/main.tab/_components/art/preview/PreviewItem';
 import RenderHTML from 'react-native-render-html';
 import { useT } from '@/utils/useTranslation/useTranslation';
 import ImageView from 'react-native-image-viewing';
