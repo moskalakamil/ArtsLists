@@ -18,7 +18,7 @@ export const ArtsList = ({ search, hideData }: IArtsListProps) => {
 
   const debouncedSearch = useDebounce(search, 300);
 
-  const { data, fetchNextPage, isLoading } = useGetArts({
+  const { data, fetchNextPage, isLoading, error } = useGetArts({
     limit: 10,
     search: debouncedSearch,
   });
@@ -30,6 +30,14 @@ export const ArtsList = ({ search, hideData }: IArtsListProps) => {
   const handleFetchMore = () => {
     fetchNextPage();
   };
+
+  if (error) {
+    return (
+      <View className={'items-center'}>
+        <Text>{t('failedToLoadData')}</Text>
+      </View>
+    );
+  }
 
   if (hideData && !search) {
     return (
