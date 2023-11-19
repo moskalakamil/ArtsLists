@@ -25,5 +25,7 @@
   "name": "Name",
   "lifeYears": "Life years",
   "refresh": "Refresh",
-  "lostInternetConnection": "Lost internet connection"
+  "lostInternetConnection": "Lost internet connection",
+  "failedToLoadData": "Failed to load data",
+  "moreArts": "More arts"
 }
